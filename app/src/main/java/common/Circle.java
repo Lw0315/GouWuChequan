@@ -49,7 +49,7 @@ public class Circle extends View {
     protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
         DisplayMetrics dm = getResources().getDisplayMetrics(); //得到屏幕
-        int width = dm.widthPixels/2;
+        int width = dm.widthPixels/1;
         int height =  dm.heightPixels/2;
         Log.d("TAG","width" + width + "------" + "height" + height);
         canvas.drawCircle(width, height, mRadius, paint);

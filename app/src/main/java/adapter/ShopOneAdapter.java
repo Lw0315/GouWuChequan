@@ -40,7 +40,6 @@ public class ShopOneAdapter  extends RecyclerView.Adapter<ShopOneAdapter.ShopVie
         final ShopTwoAdapter sp=new ShopTwoAdapter(context,data);
         holder.rvv.setLayoutManager(new LinearLayoutManager(context));
         holder.rvv.setAdapter(sp);
-
         boolean flag=true;
         for (Shop.DataBean.ListBean listBean : data) {
             if(listBean.getSelected()==0){

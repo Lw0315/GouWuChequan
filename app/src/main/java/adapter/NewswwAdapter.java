@@ -9,11 +9,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.asus.gouwuche2.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
 
 import bean.Bean;
 import bean.News;
+import common.RoundImageView;
+import common.TwoImageUtils;
 
 /**
  * Created by asus on 2017/10/25.
@@ -30,7 +33,7 @@ public class NewswwAdapter extends RecyclerView.Adapter<NewswwAdapter.MyViewHold
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view=View.inflate(context,R.layout.fl_item,null);
+        View view=View.inflate(context,R.layout.item,null);
         MyViewHolder mh=new MyViewHolder(view);
         return mh;
     }
@@ -38,10 +41,9 @@ public class NewswwAdapter extends RecyclerView.Adapter<NewswwAdapter.MyViewHold
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
          holder.tv.setText(list.get(position).getDescription());
-        Glide.with(context).load(list.get(position).getThumbnail()).into(holder.img);
-
-
-
+       // Glide.with(context).load(list.get(position).getThumbnail()).into(holder.img);
+       // ImageLoader.getInstance().displayImage();
+        TwoImageUtils.loadImage(list.get(position).getThumbnail(),holder.img);//图片采样照片
     }
 
     @Override
@@ -51,7 +53,7 @@ public class NewswwAdapter extends RecyclerView.Adapter<NewswwAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         private TextView tv;
-        private ImageView img;
+        private RoundImageView img;
         public MyViewHolder(View itemView) {
             super(itemView);
             tv=itemView.findViewById(R.id.tv);
