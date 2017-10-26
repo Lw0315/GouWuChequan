@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.asus.gouwuche2.GlideImage;
 import com.example.asus.gouwuche2.R;
@@ -33,6 +34,7 @@ public class Fragment1 extends Fragment implements view.View{
     private List<String> list;
     private Presenter pp;
     private NewsAdapter na;
+    //private ImageView iv;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class Fragment1 extends Fragment implements view.View{
 
     private void initdata() {
         list=new ArrayList<>();
+     //   iv.setImageResource(R.mipmap.ic_launcher);
     }
 
     private void initview() {

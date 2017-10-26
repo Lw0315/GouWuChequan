@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.Map;
 
+import common.LoggingIntercepto;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -29,7 +30,14 @@ public class OkHttpUtils {
     private final Handler handler;
 
     private OkHttpUtils() {
-        client = new OkHttpClient();
+//        client = new OkHttpClient();
+//        gson = new Gson();
+//        //构造一个handler，不管是从哪个哪个线程中发出消息，
+//        // 消息都会发送到主线程的messagequeue中
+//        handler = new Handler(Looper.getMainLooper());
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        builder.addInterceptor(new LoggingIntercepto());
+        client = builder.build();
         gson = new Gson();
         //构造一个handler，不管是从哪个哪个线程中发出消息，
         // 消息都会发送到主线程的messagequeue中
